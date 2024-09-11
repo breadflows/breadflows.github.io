@@ -91,6 +91,7 @@
             border-radius: 10px;
             font-size: 1rem;
         }
+
         input:focus, textarea:focus {
             outline: none;
             background-color: rgba(255, 255, 255, 0.2);
@@ -153,11 +154,12 @@
         .social-icons a img {
             width: 40px; /* Icon size */
             height: 40px;
-            transition: opacity 0.3s ease;
+            transition: filter 0.3s ease;
         }
 
+        /* Invert effect on hover */
         .social-icons a:hover img {
-            opacity: 0.5; /* Become transparent on hover */
+            filter: invert(1); /* Inverts the colors */
         }
 
         /* Centering content with flex */
@@ -185,22 +187,22 @@
 
     <!-- Website Logo -->
     <div class="logo-container">
-        <img src="logos/dragoon-dragon" alt="Breadflows Logo">
+        <img src="dragoon-dragon.gif" alt="Breadflows Logo">
     </div>
 
     <!-- Social Media Icons in the center -->
     <div class="social-icons">
         <a href="https://twitter.com" target="_blank">
-            <img src="logos/th.webp" alt="Twitter">
+            <img src="xcom.png" alt="Twitter">
         </a>
         <a href="https://facebook.com" target="_blank">
-            <img src="logos/insta.png" alt="Facebook">
+            <img src="xcom.png" alt="Facebook">
         </a>
         <a href="https://instagram.com" target="_blank">
-            <img src="logos/insta.png" alt="Instagram">
+            <img src="xcom.png" alt="Instagram">
         </a>
         <a href="https://linkedin.com" target="_blank">
-            <img src="logos/in.webp" alt="LinkedIn">
+            <img src="xcom.png" alt="LinkedIn">
         </a>
     </div>
 
@@ -213,8 +215,7 @@
     <div class="main-content">
         <div class="content-container">
             <!-- Contact Form -->
-            <div 
-class="contact-form-container">
+            <div class="contact-form-container">
                 <h2>Contact Me</h2>
                 <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
                     <input type="text" name="name" placeholder="Your Name" required>
