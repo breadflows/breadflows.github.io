@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,95 +13,130 @@
         }
 
         body, html {
-            height: 100%;
             font-family: 'Arial', sans-serif;
             color: white;
-            overflow: hidden;
+            height: 100%;
         }
 
-        /* Container for the video */
-        .video-container {
-            position: relative;
-            width: 100%;
+        /* Full-screen video setup */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
             height: 100vh;
             overflow: hidden;
+            z-index: -1; /* Video stays behind the content */
         }
 
-        /* Full-screen YouTube video via iframe */
+        /* YouTube video embedded in iframe */
         iframe {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100vw;
-            height: 100vh;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
             transform: translate(-50%, -50%);
-            z-index: -1;
-            pointer-events: none; /* So user can't interact with video */
+            pointer-events: none;
+            object-fit: cover;
         }
 
-        /* Centering the Contact button */
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        /* Main content to scroll over the video */
+        .main-content {
+            position: relative;
+            min-height: 200vh; /* Ensures we can scroll */
+            padding-top: 100vh; /* Adds space before the form */
+        }
+
+        /* Centering the form */
+        .contact-form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on form */
+            border-radius: 20px; /* Curved edges */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
             text-align: center;
-        }
-
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-        }
-
-        /* Contact button styling */
-        .contact-button {
-            background-color: rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact form inputs */
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        /* Submit button */
+        .submit-button {
+            background-color: rgba(255, 255, 255, 0.3);
+            padding: 1rem;
+            width: 100%;
             border: 2px solid white;
             cursor: pointer;
+            color: white;
+            border-radius: 10px;
+            font-size: 1.2rem;
             transition: background-color 0.3s ease;
-            border-radius: 5px;
             text-transform: uppercase;
-            text-decoration: none; /* Remove underline */
         }
 
-        /* Button hover effect */
-        .contact-button:hover {
-            background-color: rgba(255, 255, 255, 0.4);
+        .submit-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Optional styling for audio controls */
-        audio {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
+        /* Style the form content to take center stage when scrolling */
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 5vh;
         }
+
     </style>
 </head>
 <body>
 
-    <div class="video-container">
-        <!-- YouTube Video Background -->
+    <!-- Video Background -->
+    <div class="video-background">
         <iframe 
-            src="https://www.youtube.com/embed/vMJvpDTS6Eg?autoplay=1&mute=1&loop=1&playlist=vMJvpDTS6Eg" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID" 
             frameborder="0" 
-            allow="autoplay; loop; fullscreen"
+            allow="autoplay; loop; fullscreen" 
             allowfullscreen>
         </iframe>
+    </div>
 
-        <!-- Centered content with button -->
-        <div class="content">
-            <h1>Welcome to Breadflows</h1>
-            <a href="mailto:your-email@example.com" class="contact-button">Contact Me</a>
+    <!-- Main Content that scrolls over video -->
+    <div class="main-content">
+        <div class="content-container">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2>Contact Me</h2>
+                <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <input type="submit" value="Send" class="submit-button">
+                </form>
+            </div>
         </div>
-        
-        <!-- Optional Audio player -->
-        <audio controls autoplay loop>
-            <source src="your-audio.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
     </div>
 
 </body>
