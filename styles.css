@@ -1,4 +1,4 @@
- /* Reset some basic styles */
+/* Reset some basic styles */
 * {
     margin: 0;
     padding: 0;
@@ -140,13 +140,30 @@ input:focus, textarea:focus {
     gap: 20px;
 }
 
+/* Icon styling (adjust sizes to your preference) */
 .social-icons a img {
     width: 40px;
     height: 40px;
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
+    background-color: black; /* Default background for testing */
 }
 
-/* Invert effect on hover */
+/* Invert effect on hover using filter (black <-> white) */
 .social-icons a:hover img {
-    filter: invert(1);
+    filter: invert(1) brightness(2); /* Inverts black and white */
+}
+
+/* Alternate hover effect using mix-blend-mode */
+.social-icons a:hover img.alt-hover {
+    mix-blend-mode: difference; /* Switches black and white */
+    background-color: white;
+}
+
+/* Centering content with flex */
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 5vh;
 }
