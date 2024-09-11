@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadflows - Contact</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+
+    <!-- Video Background -->
+    <div class="video-background">
+        <iframe 
+            src="https://www.youtube.com/embed/vMJvpDTS6Eg?autoplay=1&mute=1&loop=1&playlist=vMJvpDTS6Eg" 
+            frameborder="0" 
+            allow="autoplay; loop; fullscreen" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- Website Logo -->
+    <div class="logo-container">
+        <img src="logos/dragoon-dragon.gif" alt="Breadflows Logo">
+    </div>
+
+    <!-- Social Media Icons in the center -->
+    <div class="social-icons">
+        <a href="https://twitter.com" target="_blank">
+            <img src="logos/xcom.png" alt="Twitter">
+        </a>
+        <a href="https://facebook.com" target="_blank">
+            <img src="logos/xcom.png" alt="Facebook">
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="logos/xcom.png" alt="Instagram">
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+            <img src="logos/xcom.png" alt="LinkedIn">
+        </a>
+    </div>
+
+    <!-- Scroll Prompt -->
+    <div class="scroll-prompt">
+        Scroll Here ↓
+    </div>
+
+    <!-- Main Content that scrolls over video -->
+    <div class="main-content">
+        <div class="content-container">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2>Contact Me</h2>
+                <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <input type="submit" value="Send" class="submit-button">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html> 
