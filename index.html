@@ -50,6 +50,20 @@
             padding-top: 100vh; /* Adds space before the form */
         }
 
+        /* Centered logo styling */
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1; /* Ensures logo appears above the video */
+        }
+
+        .logo-container img {
+            max-width: 200px; /* Adjust the logo size */
+            height: auto;
+        }
+
         /* Centering the form */
         .contact-form-container {
             max-width: 400px;
@@ -77,7 +91,6 @@
             border-radius: 10px;
             font-size: 1rem;
         }
-
         input:focus, textarea:focus {
             outline: none;
             background-color: rgba(255, 255, 255, 0.2);
@@ -100,7 +113,8 @@
         .submit-button:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
-/* "Scroll here" prompt styling */
+
+        /* "Scroll here" prompt styling */
         .scroll-prompt {
             position: absolute;
             bottom: 10%;
@@ -136,14 +150,13 @@
             gap: 20px;
         }
 
-        .social-icons a {
-            text-decoration: none;
-            color: white;
-            font-size: 2rem;
+        .social-icons a img {
+            width: 40px; /* Icon size */
+            height: 40px;
             transition: opacity 0.3s ease;
         }
 
-        .social-icons a:hover {
+        .social-icons a:hover img {
             opacity: 0.5; /* Become transparent on hover */
         }
 
@@ -163,19 +176,32 @@
     <!-- Video Background -->
     <div class="video-background">
         <iframe 
-            src="https://www.youtube.com/embed/vMJvpDTS6Eg?autoplay=1&mute=1&loop=1&playlist=vMJvpDTS6Eg" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID" 
             frameborder="0" 
             allow="autoplay; loop; fullscreen" 
             allowfullscreen>
         </iframe>
     </div>
 
+    <!-- Website Logo -->
+    <div class="logo-container">
+        <img src="logo.png" alt="Breadflows Logo">
+    </div>
+
     <!-- Social Media Icons in the center -->
     <div class="social-icons">
-        <a href="https://twitter.com" target="_blank">logos/th.webp</a>
-        <a href="https://facebook.com" target="_blank">logos/insta.png</a>
-        <a href="https://instagram.com" target="_blank">logos/insta.png</a>
-        <a href="https://linkedin.com" target="_blank">logos/in.webp</a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="twitter-icon.png" alt="Twitter">
+        </a>
+        <a href="https://facebook.com" target="_blank">
+            <img src="facebook-icon.png" alt="Facebook">
+        </a>
+        <a href="https://instagram.com" target="_blank">
+            <img src="instagram-icon.png" alt="Instagram">
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+            <img src="linkedin-icon.png" alt="LinkedIn">
+        </a>
     </div>
 
     <!-- Scroll Prompt -->
@@ -187,9 +213,10 @@
     <div class="main-content">
         <div class="content-container">
             <!-- Contact Form -->
-            <div class="contact-form-container">
+            <div 
+class="contact-form-container">
                 <h2>Contact Me</h2>
-                <form action="mailto:breadflowz@proton.me" method="post" enctype="text/plain">
+                <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
