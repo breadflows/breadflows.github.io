@@ -27,17 +27,16 @@
             overflow: hidden;
         }
 
-        /* Full-screen video */
-        video {
+        /* Full-screen YouTube video via iframe */
+        iframe {
             position: absolute;
             top: 50%;
             left: 50%;
-            min-width: 100%;
-            min-height: 100%;
+            width: 100vw;
+            height: 100vh;
             transform: translate(-50%, -50%);
             z-index: -1;
-            object-fit: cover;
-            filter: brightness(60%);
+            pointer-events: none; /* So user can't interact with video */
         }
 
         /* Centering the Contact button */
@@ -65,6 +64,7 @@
             transition: background-color 0.3s ease;
             border-radius: 5px;
             text-transform: uppercase;
+            text-decoration: none; /* Remove underline */
         }
 
         /* Button hover effect */
@@ -83,19 +83,21 @@
 <body>
 
     <div class="video-container">
-        <!-- Video Background -->
-        <video autoplay muted loop>
-            <source src="your-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <!-- YouTube Video Background -->
+        <iframe 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&mute=1&loop=1&playlist=YOUR_VIDEO_ID" 
+            frameborder="0" 
+            allow="autoplay; loop; fullscreen"
+            allowfullscreen>
+        </iframe>
 
         <!-- Centered content with button -->
         <div class="content">
             <h1>Welcome to Breadflows</h1>
-            <button class="contact-button">Contact Me</button>
+            <a href="mailto:your-email@example.com" class="contact-button">Contact Me</a>
         </div>
         
-        <!-- Audio player -->
+        <!-- Optional Audio player -->
         <audio controls autoplay loop>
             <source src="your-audio.mp3" type="audio/mp3">
             Your browser does not support the audio element.
