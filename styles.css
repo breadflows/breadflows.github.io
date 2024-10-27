@@ -97,12 +97,12 @@ input:focus, textarea:focus {
     color: white;
     border-radius: 10px;
     font-size: 1.2rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
     text-transform: uppercase;
 }
 
 .submit-button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.5); /* Change color on hover */
 }
 
 /* "Scroll here" prompt styling */
