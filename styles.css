@@ -140,23 +140,20 @@ input:focus, textarea:focus {
     gap: 20px;
 }
 
-/* Icon styling (adjust sizes to your preference) */
+/* Social media icons styling */
+.social-icons a {
+    display: inline-block; /* Makes the link an inline-block element */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for effects */
+}
+
 .social-icons a img {
-    width: 40px;
-    height: 40px;
-    transition: filter 0.3s ease, mix-blend-mode 0.3s ease;
-    background-color: black; /* Default background for testing */
+    width: 40px; /* Icon size */
+    height: 40px; /* Keep aspect ratio */
 }
 
-/* Invert effect on hover using filter (black <-> white) */
 .social-icons a:hover img {
-    filter: invert(1) brightness(2); /* Inverts black and white */
-}
-
-/* Alternate hover effect using mix-blend-mode */
-.social-icons a:hover img.alt-hover {
-    mix-blend-mode: difference; /* Switches black and white */
-    background-color: white;
+    transform: scale(1.1); /* Scale up the icon on hover */
+    opacity: 0.8; /* Slightly fade the icon on hover */
 }
 
 /* Centering content with flex */
