@@ -84,8 +84,8 @@ box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
 
 /* Bigger circle styling */
 .big-circle {
-width: 200px;
-height: 200px;
+width: 250px;
+height: 250px;
 background-image: url('logos/icon.png');
 background-size: cover;
 background-position: center;
@@ -95,7 +95,7 @@ transition: opacity 0.3s ease, transform 0.3s ease;
 cursor: pointer; /* Indicate clickable area */
 box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
 position: absolute;
-top: -150px; /* Position above the other circles */
+top: -250px; /* Position higher above the other circles */
 }
 
 /* Hover effect */
@@ -123,7 +123,7 @@ margin-bottom: 1.5rem;
 
 .contact-form-container input,
 .contact-form-container textarea {
-width: 100%;
+width: calc(100% - 2rem); /* Ensure padding doesn't extend beyond container */
 padding: 1rem;
 margin-bottom: 1rem;
 background-color: rgba(255, 255, 255, 0.1);
@@ -142,7 +142,7 @@ background-color: rgba(255, 255, 255, 0.2);
 .contact-form-container .submit-button {
 background-color: rgba(255, 255, 255, 0.3);
 padding: 1rem;
-width: 100%;
+width: calc(100% - 2rem); /* Ensure padding doesn't extend beyond container */
 border: 2px solid white;
 cursor: pointer;
 color: white;
