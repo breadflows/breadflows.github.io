@@ -1,166 +1,138 @@
-/* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Basic reset for body */
+body {
+margin: 0;
+background-color: white;
+overflow-x: hidden; /* Hide horizontal overflow */
 }
 
-body, html {
-    font-family: 'Arial', sans-serif;
-    color: white;
-    height: 100%;
+/* Section styling */
+.section {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh; /* Full viewport height */
+position: relative;
+flex-direction: column; /* Stack elements vertically */
 }
 
-/* Full-screen video setup */
+/* White background for the first section */
+.white-background {
+background-color: white;
+position: relative;
+}
+
+/* Circle that changes opacity on hover */
+.hover-circle {
+width: 100px;
+height: 100px;
+background-color: blue;
+border-radius: 50%;
+position: absolute;
+bottom: 20px; /* Position at the bottom */
+opacity: 0.5;
+transition: opacity 0.3s ease, transform 0.3s ease;
+cursor: pointer; /* Indicate clickable area */
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+}
+
+.white-background:hover .hover-circle {
+opacity: 1;
+transform: translateY(-10px); /* Slight lift effect */
+}
+
+/* Background Video Styling */
 .video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: -1; /* Video stays behind the content */
+position: absolute;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+overflow: hidden;
+z-index: -1; /* Place behind other content */
 }
 
-iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    object-fit: cover;
+.video-background iframe {
+width: 100vw;
+height: 100vh;
+pointer-events: none; /* Prevent interaction */
 }
 
-/* Main content that scrolls over the video */
-.main-content {
-    position: relative;
-    min-height: 200vh; /* Ensures we can scroll */
-    padding-top: 100vh; /* Adds space before the form */
+/* Circle container styling */
+.circle-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+gap: 20px; /* Space between circles */
 }
 
-/* Centered logo styling */
-.logo-container {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1; /* Ensures logo appears above the video */
+/* Circle styling with background image */
+.circle {
+width: 100px;
+height: 100px;
+background-image: url('logos/xcom2.png');
+background-size: cover;
+background-position: center;
+border-radius: 50%;
+opacity: 0.5;
+transition: opacity 0.3s ease, transform 0.3s ease;
+cursor: pointer; /* Indicate clickable area */
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
 }
 
-.logo-container img {
-    max-width: 200px; /* Adjust the logo size */
-    height: auto;
+/* Hover effect */
+.circle:hover {
+opacity: 1;
+transform: translateY(-10px); /* Slight lift effect */
 }
 
-/* Centering the form */
+/* Contact form styling */
 .contact-form-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on form */
-    border-radius: 20px; /* Curved edges */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
-    text-align: center;
-    color: white;
+max-width: 400px;
+margin: 2rem auto;
+padding: 2rem;
+background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on form */
+border-radius: 20px; /* Curved edges */
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
+text-align: center;
+color: white;
 }
 
-h2 {
-    margin-bottom: 1.5rem;
+.contact-form-container h2 {
+margin-bottom: 1.5rem;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    border-radius: 10px;
-    font-size: 1rem;
+.contact-form-container input,
+.contact-form-container textarea {
+width: 100%;
+padding: 1rem;
+margin-bottom: 1rem;
+background-color: rgba(255, 255, 255, 0.1);
+border: none;
+color: white;
+border-radius: 10px;
+font-size: 1rem;
 }
 
-input:focus, textarea:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.2);
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+outline: none;
+background-color: rgba(255, 255, 255, 0.2);
 }
 
-.submit-button {
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 1rem;
-    width: 100%;
-    border: 2px solid white;
-    cursor: pointer;
-    color: white;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    text-transform: uppercase;
+.contact-form-container .submit-button {
+background-color: rgba(255, 255, 255, 0.3);
+padding: 1rem;
+width: 100%;
+border: 2px solid white;
+cursor: pointer;
+color: white;
+border-radius: 10px;
+font-size: 1.2rem;
+transition: background-color 0.3s ease; /* Smooth transition for background color */
+text-transform: uppercase;
 }
 
-.submit-button:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Change color on hover */
-}
-
-/* "Scroll here" prompt styling */
-.scroll-prompt {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    color: white;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {
-        transform: translate(-50%, 0);
-    }
-    50% {
-        transform: translate(-50%, 10px);
-    }
-}
-
-/* Style for social media icons */
-.social-icons {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Social media icons styling */
-.social-icons a {
-    display: inline-block; /* Makes the link an inline-block element */
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for effects */
-}
-
-.social-icons a img {
-    width: 40px; /* Icon size */
-    height: 40px; /* Keep aspect ratio */
-}
-
-.social-icons a:hover img {
-    transform: scale(1.1); /* Scale up the icon on hover */
-    opacity: 0.8; /* Slightly fade the icon on hover */
-}
-
-/* Centering content with flex */
-.content-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 5vh;
+.contact-form-container .submit-button:hover {
+background-color: rgba(255, 255, 255, 0.5); /* Change color on hover */
 }
