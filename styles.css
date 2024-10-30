@@ -104,6 +104,42 @@ opacity: 1;
 transform: translateY(-10px); /* Slight lift effect */
 }
 
+/* White bar styling */
+.white-bar {
+position: absolute;
+top: 100vh; /* Start at the bottom of the first section */
+left: 50%;
+transform: translateX(-50%);
+width: 80%; /* Adjust width as needed */
+height: calc(100vh - 200px); /* Adjust height to leave room for the third section */
+background-color: white;
+opacity: 1;
+transition: opacity 0.3s ease;
+z-index: 1; /* Ensure it is above the video */
+}
+
+.white-bar:hover {
+opacity: 0.7; /* Reduce opacity on hover */
+}
+
+/* White tower styling */
+.white-tower {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 400px; /* Same width as the contact form */
+height: 100vh; /* Full height of the video */
+background-color: white;
+opacity: 1;
+transition: opacity 0.3s ease;
+z-index: 2; /* Ensure it is above the video and white bar */
+}
+
+.white-tower:hover {
+opacity: 0.7; /* Reduce opacity on hover */
+}
+
 /* Contact form styling */
 .contact-form-container {
 max-width: 400px;
@@ -115,6 +151,8 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
 text-align: center;
 color: white;
 font-family: 'Arial', sans-serif; /* Smoother font */
+position: relative;
+z-index: 3; /* Ensure it is above the white tower */
 }
 
 .contact-form-container h2 {
@@ -142,16 +180,4 @@ background-color: rgba(255, 255, 255, 0.2);
 .contact-form-container .submit-button {
 background-color: rgba(255, 255, 255, 0.3);
 padding: 1rem;
-width: calc(100% - 2rem); /* Ensure padding doesn't extend beyond container */
-border: 2px solid white;
-cursor: pointer;
-color: white;
-border-radius: 10px;
-font-size: 1.2rem;
-transition: background-color 0.3s ease; /* Smooth transition for background color */
-text-transform: uppercase;
-}
-
-.contact-form-container .submit-button:hover {
-background-color: rgba(255, 255, 255, 0.5); /* Change color on hover */
-}
+width: calc(100%
