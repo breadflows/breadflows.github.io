@@ -64,6 +64,7 @@ flex-wrap: wrap;
 justify-content: center;
 align-items: center;
 gap: 20px; /* Space between circles */
+position: relative;
 }
 
 /* Circle styling with background image */
@@ -80,8 +81,24 @@ cursor: pointer; /* Indicate clickable area */
 box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
 }
 
+/* Bigger circle styling */
+.big-circle {
+width: 150px;
+height: 150px;
+background-image: url('logos/icon.png');
+background-size: cover;
+background-position: center;
+border-radius: 50%;
+opacity: 0.5;
+transition: opacity 0.3s ease, transform 0.3s ease;
+cursor: pointer; /* Indicate clickable area */
+box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+position: absolute;
+top: -100px; /* Position above the other circles */
+}
+
 /* Hover effect */
-.circle:hover {
+.circle:hover, .big-circle:hover {
 opacity: 1;
 transform: translateY(-10px); /* Slight lift effect */
 }
