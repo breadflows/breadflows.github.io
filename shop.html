@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Coming Soon</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for the store page */
+        body {
+            background-image: url('images/store/wallpaper.jpg'); /* Background image path */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent background from repeating */
+            overflow: hidden; /* Prevent scrolling */
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+
+        .coming-soon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; /* Add padding for better spacing */
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            text-align: center; /* Center text */
+            margin: auto; /* Center the container */
+            max-width: 300px; /* Limit the width of the container */
+            position: absolute; /* Use absolute positioning */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for exact centering */
+        }
+
+        .coming-soon-container h1 {
+            font-size: 2.5rem; /* Larger font size */
+            color: #333; /* Dark text color */
+        }
+
+        /* Navigation styles */
+        .navbar {
+            position: fixed; /* Fixed position for the navbar */
+            width: 100%; /* Full width */
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            backdrop-filter: blur(10px); /* Blur effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            z-index: 100; /* Ensure it's above other content */
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center; /* Center items */
+            list-style-type: none; /* Remove bullet points */
+            margin: 0;
+            padding: 1rem 0; /* Padding for navbar */
+        }
+
+        .navbar li {
+            margin: 0 15px; /* Space between menu items */
+        }
+
+        .navbar a {
+            text-decoration: none; /* Remove underline */
+            color: black; /* Text color */
+            font-weight: bold; /* Bold text */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+
+        .navbar a:hover {
+            color: rgba(0, 123, 255, 1); /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Menu -->
+<nav class="navbar">
+    <ul>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">Gallery</a></li>
+        <li><a href="#section3">Store</a></li>
+        <li><a href="#section4">Recruitment</a></li>
+    </ul>
+</nav>
+
+<!-- Coming Soon Section -->
+<section class="coming-soon-section">
+    <div class="coming-soon-container">
+        <h1>Coming Soon!</h1>
+    </div>
+</section>
+
+<!-- Footer Navigation -->
+<nav class="navbar">
+    <ul>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">Gallery</a></li>
+        <li><a href="#section3">Store</a></li>
+        <li><a href="#section4">Recruitment</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>
