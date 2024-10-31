@@ -21,18 +21,23 @@
 <!-- First Section with White Background -->
 <section class="section white-background" id="section1">
     <div class="circle-container">
-        <a href="https://twitter.com/breadflowz" target="_blank">
-            <div class="circle" style="background-image: url('logos/xcom2.png');"></div>
-        </a>
-        <a href="https://steamcommunity.com/id/breadflows" target="_blank">
-            <div class="circle" style="background-image: url('logos/steam.png');"></div>
-        </a>
-        <a href="https://discord.gg/">
-            <div class="circle" style="background-image: url('logos/discord.png');"></div>
-        </a>
-        <a href="https://instagram.com/bread.flowz" target="_blank">
-            <div class="circle" style="background-image: url('logos/instagram.png');"></div>
-        </a>
+        <!-- New Larger Circle for Icon placed first -->
+        <div class="large-circle" style="background-image: url('logos/icon.png');"></div>
+        
+        <div class="small-circle-container">
+            <a href="https://twitter.com/breadflowz" target="_blank">
+                <div class="circle" style="background-image: url('logos/xcom2.png');"></div>
+            </a>
+            <a href="https://steamcommunity.com/id/breadflows" target="_blank">
+                <div class="circle" style="background-image: url('logos/steam.png');"></div>
+            </a>
+            <a href="https://discord.gg/">
+                <div class="circle" style="background-image: url('logos/discord.png');"></div>
+            </a>
+            <a href="https://instagram.com/bread.flowz" target="_blank">
+                <div class="circle" style="background-image: url('logos/instagram.png');"></div>
+            </a>
+        </div>
     </div>
     <div class="hover-circle" onclick="scrollToSection('section2')"></div>
 </section>
@@ -43,7 +48,8 @@
         <iframe id="videoFrame" src="https://www.youtube.com/embed/videoseries?list=PLln60eLGTlYG5tV5qaXl4J6ZjNO8oWzgT&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&index=0"
                 frameborder="0"
                 allow="autoplay; fullscreen"
-                allowfullscreen>
+                allowfullscreen
+                style="width: 100%; height: 100%;">
         </iframe>
     </div>
     <div class="white-bar"></div>
@@ -113,7 +119,7 @@
 
     // Gallery functionality
     let currentImageIndex = 0;
-    const images = ['images/gallery/image1.jpg', 'images/gallery/image2.jpg', 'images/gallery/image3.jpg']; // Updated image paths
+    const images = ['images/gallery/image1.jpg', 'images/gallery/image2.jpg', 'images/gallery/image3.jpg'];
 
     function updateImage() {
         document.getElementById('galleryImg').src = images[currentImageIndex];
