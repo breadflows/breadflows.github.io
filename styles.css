@@ -313,9 +313,46 @@ button {
     backdrop-filter: blur(10px); /* Blur effect */
     transition: background-color 0.3s ease;
     cursor: pointer; /* Indicate clickable area */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
 }
 
 button:hover {
-    background: rgba(0, 0, 0, 0.7); /* Darken on hover */
+    background: rgba(0, 0, 0, 0.7); /* Darker on hover */
+}
+
+/* Footer styling */
+.footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    color: white; /* Text color */
+    padding: 20px 0; /* Padding for spacing */
+    text-align: center; /* Center the text */
+    position: relative; /* Positioning context */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+.footer-content {
+    max-width: 1200px; /* Limit width */
+    margin: 0 auto; /* Center the footer content */
+}
+
+.footer ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.footer li {
+    display: inline; /* Display list items in a line */
+    margin: 0 15px; /* Spacing between links */
+}
+
+.footer a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.footer a:hover {
+    color: rgba(0, 123, 255, 1); /* Change color on hover */
 }
