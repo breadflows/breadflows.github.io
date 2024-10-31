@@ -1,358 +1,202 @@
-/* Basic reset for body */
-body {
-    margin: 0;
-    background-color: white;
-    overflow-x: hidden; /* Hide horizontal overflow */
-    font-family: 'Arial', sans-serif; /* Smoother font */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Opacity Circle with Background Video</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Footer styling */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+            color: white; /* Text color */
+            padding: 20px 0; /* Padding for spacing */
+            text-align: center; /* Center the text */
+            position: relative; /* Positioning context */
+            bottom: 0; /* Stick to the bottom */
+            width: 100%; /* Full width */
+        }
 
-/* Navbar styling */
-.navbar {
-    position: fixed; /* Fixed position for the navbar */
-    top: 0;
-    left: 0;
-    width: 100%; /* Full width */
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    z-index: 100; /* Ensure it's above other content */
-}
+        .footer-content {
+            max-width: 1200px; /* Limit width */
+            margin: 0 auto; /* Center the footer content */
+        }
 
-.navbar ul {
-    display: flex;
-    justify-content: center; /* Center items */
-    list-style-type: none; /* Remove bullet points */
-    margin: 0;
-    padding: 1rem 0; /* Padding for navbar */
-}
+        .footer ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            margin: 0; /* Remove margin */
+        }
 
-.navbar li {
-    margin: 0 15px; /* Space between menu items */
-}
+        .footer li {
+            display: inline; /* Display list items in a line */
+            margin: 0 15px; /* Spacing between links */
+        }
 
-.navbar a {
-    text-decoration: none; /* Remove underline */
-    color: black; /* Text color */
-    font-weight: bold; /* Bold text */
-    transition: color 0.3s ease; /* Smooth color transition */
-}
+        .footer a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s; /* Smooth color transition */
+        }
 
-.navbar a:hover {
-    color: rgba(0, 123, 255, 1); /* Change color on hover */
-}
+        .footer a:hover {
+            color: rgba(0, 123, 255, 1); /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
 
-/* Section styling */
-.section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    position: relative;
-    flex-direction: column; /* Stack elements vertically */
-}
+<!-- Navigation Menu -->
+<nav class="navbar">
+    <ul>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">Gallery</a></li>
+        <li><a href="#section3">Store</a></li>
+        <li><a href="#section4">Recruitment</a></li>
+        <li><a href="#section5">Contact</a></li>
+    </ul>
+</nav>
 
-/* Glassmorphism effect for white background */
-.white-background {
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    position: relative;
-}
+<!-- First Section with White Background -->
+<section class="section white-background" id="section1">
+    <div class="circle-container">
+        <div class="large-circle" style="background-image: url('logos/icon.png');"></div>
+        <div class="small-circle-container">
+            <a href="https://twitter.com/breadflowz" target="_blank">
+                <div class="circle" style="background-image: url('logos/xcom2.png');"></div>
+            </a>
+            <a href="https://steamcommunity.com/id/breadflows" target="_blank">
+                <div class="circle" style="background-image: url('logos/steam.png');"></div>
+            </a>
+            <a href="https://discord.gg/">
+                <div class="circle" style="background-image: url('logos/discord.png');"></div>
+            </a>
+            <a href="https://instagram.com/bread.flowz" target="_blank">
+                <div class="circle" style="background-image: url('logos/instagram.png');"></div>
+            </a>
+        </div>
+    </div>
+    <div class="hover-circle" onclick="scrollToSection('section2')"></div>
+</section>
 
-/* Container for circles */
-.circle-container {
-    display: flex;
-    flex-direction: column; /* Stack vertically */
-    align-items: center; /* Center items */
-}
+<!-- Second Section with Background Playlist -->
+<section class="section" id="section2">
+    <div class="video-background">
+        <iframe id="videoFrame" src="https://www.youtube.com/embed/videoseries?list=PLln60eLGTlYG5tV5qaXl4J6ZjNO8oWzgT&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&index=0"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+                style="width: 100%; height: 100%;">
+        </iframe>
+    </div>
+    <div class="white-bar"></div>
+    <div class="white-tower"></div>
+    <!-- Contact Form -->
+    <div class="contact-form-container">
+        <h2>Contact Me</h2>
+        <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="hidden" name="replyTo" value="@">
+            <input type="submit" value="Send" class="submit-button">
+        </form>
+    </div>
+</section>
 
-/* Container for small circles */
-.small-circle-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* Space between circles */
-    margin-top: 20px; /* Space between large circle and small circles */
-}
+<!-- Third Section for Gallery -->
+<section class="section gallery-section" id="section3">
+    <h2>Gallery</h2>
+    <div class="gallery-container">
+        <button class="arrow" onclick="prevImage()">&#10094;</button>
+        <div class="gallery-image">
+            <img id="galleryImg" src="images/gallery/image1.jpg" alt="Gallery Image">
+        </div>
+        <button class="arrow" onclick="nextImage()">&#10095;</button>
+    </div>
+</section>
 
-/* Circle that changes opacity on hover */
-.hover-circle {
-    width: 100px;
-    height: 100px;
-    background-color: rgba(0, 0, 255, 0.5); /* Semi-transparent blue */
-    border-radius: 50%;
-    position: absolute;
-    bottom: 20px; /* Position at the bottom */
-    opacity: 0.5;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    cursor: pointer; /* Indicate clickable area */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
-}
+<!-- Fourth Section for Recruitment -->
+<section class="section" id="section4">
+    <div class="video-background">
+        <video id="recruitmentVideo" autoplay muted loop>
+            <source src="videos/yes.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="white-bar"></div>
+    <div class="contact-form-container">
+        <h2>Join Us</h2>
+        <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Why do you want to join?" required></textarea>
+            <input type="hidden" name="replyTo" value="@">
+            <input type="submit" value="Send" class="submit-button">
+        </form>
+    </div>
+</section>
 
-/* Change opacity and lift effect on hover */
-.white-background:hover .hover-circle {
-    opacity: 1;
-    transform: translateY(-10px); /* Slight lift effect */
-}
+<!-- Fifth Section for Footer -->
+<section class="section" id="section5">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+        <p>For inquiries, please reach out!</p>
+    </div>
+</section>
 
-/* Background Video Styling */
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Prevent interaction */
-}
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 BreadFlows LLC. All Rights Reserved.</p>
+        <ul class="social-links">
+            <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
+            <li><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></li>
+            <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+        </ul>
+    </div>
+</footer>
 
-/* Circle styling with background image */
-.circle {
-    width: 100px; /* Keep circle size */
-    height: 100px; /* Keep circle size */
-    background-size: 110%; /* Slightly zoomed-out image size to fit within circle */
-    background-position: center;
-    border-radius: 50%;
-    opacity: 0.5;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    cursor: pointer; /* Indicate clickable area */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
-}
+<script>
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
 
-/* Larger circle styling for the icon */
-.large-circle {
-    width: 150px; /* Larger circle size */
-    height: 150px; /* Larger circle size */
-    background-size: 110%; /* Adjusted image size */
-    background-position: center;
-    border-radius: 50%;
-    opacity: 0.5;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
-}
+    // Function to shuffle the YouTube playlist
+    function shufflePlaylist() {
+        const iframe = document.getElementById('videoFrame');
+        const src = iframe.src;
+        iframe.src = src + '&shuffle=1';
+    }
 
-/* Hover effect for circles */
-.circle:hover,
-.large-circle:hover {
-    opacity: 1;
-    transform: translateY(-10px); /* Slight lift effect */
-}
+    // Call the shuffle function when the page loads
+    window.onload = shufflePlaylist;
 
-/* Gallery Section */
-.gallery-section {
-    text-align: center; /* Center text in gallery section */
-    position: relative; /* Needed for absolute positioning of the blur effect */
-}
+    // Gallery functionality
+    let currentImageIndex = 0;
+    const images = ['images/gallery/image1.jpg', 'images/gallery/image2.jpg', 'images/gallery/image3.jpg'];
 
-.gallery-container {
-    display: flex;
-    align-items: center; /* Center align images */
-    justify-content: center; /* Center align arrows */
-}
+    function updateImage() {
+        document.getElementById('galleryImg').src = images[currentImageIndex];
+    }
 
-/* Add a new wrapper for the image with blur */
-.gallery-image {
-    position: relative; /* Positioning for the blur effect */
-}
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        updateImage();
+    }
 
-/* New style for the blurred background */
-.gallery-image::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    z-index: 1; /* Place behind the image */
-}
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage();
+    }
 
-/* Ensure the image is above the blur */
-.gallery-image img {
-    width: 500px; /* Width of gallery image */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    position: relative; /* Ensure image is above the blur */
-    z-index: 2; /* Place image above the blur effect */
-    transition: transform 0.3s ease; /* Smooth zoom transition */
-}
+    // Initial image load
+    window.onload = function() {
+        updateImage();
+    };
+</script>
 
-/* Zoom effect on hover */
-.gallery-image img:hover {
-    transform: scale(1.05); /* Scale up image slightly */
-}
-
-/* Arrow buttons for gallery */
-.arrow {
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    border: none;
-    border-radius: 50%; /* Round buttons */
-    width: 40px; /* Width of buttons */
-    height: 40px; /* Height of buttons */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 20px; /* Font size for arrows */
-    margin: 0 20px; /* Margin between arrows and image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-    position: relative; /* Ensure arrows are above the blur */
-    z-index: 3; /* Place above the blur */
-}
-
-.arrow:hover {
-    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
-}
-
-/* Glassmorphism for white bar */
-.white-bar {
-    position: absolute;
-    top: 100vh; /* Start at the bottom of the first section */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%; /* Adjust width as needed */
-    height: calc(100vh - 200px); /* Adjust height to leave room for the third section */
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    transition: opacity 0.3s ease;
-    z-index: 1; /* Ensure it is above the video */
-}
-
-.white-bar:hover {
-    opacity: 0.7; /* Reduce opacity on hover */
-}
-
-/* Glassmorphism for white tower */
-.white-tower {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px; /* Same width as the contact form */
-    height: 100vh; /* Full height of the video */
-    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
-    backdrop-filter: blur(10px); /* Blur effect */
-    transition: opacity 0.3s ease;
-    z-index: 2; /* Ensure it is above the video and white bar */
-}
-
-.white-tower:hover {
-    opacity: 0.7; /* Reduce opacity on hover */
-}
-
-/* Contact form styling */
-.contact-form-container {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.8); /* Slightly more opaque */
-    backdrop-filter: blur(15px); /* Stronger blur effect */
-    border-radius: 20px; /* Curved edges */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
-    text-align: center;
-    color: black; /* Change text color for better contrast */
-    position: relative;
-    z-index: 3; /* Ensure it is above the white tower */
-}
-
-.contact-form-container h2 {
-    margin-bottom: 1.5rem;
-}
-
-.contact-form-container input,
-.contact-form-container textarea {
-    width: calc(100% - 2rem); /* Ensure padding doesn't extend beyond container */
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background-color: rgba(255, 255, 255, 0.9); /* More opaque for input fields */
-    border: none;
-    color: black; /* Change text color for better contrast */
-    border-radius: 10px;
-    font-size: 1rem;
-}
-
-.contact-form-container input:focus,
-.contact-form-container textarea:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 1); /* Fully opaque on focus */
-}
-
-.contact-form-container .submit-button {
-    background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue */
-    padding: 1rem;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact-form-container .submit-button:hover {
-    background-color: rgba(0, 123, 255, 1); /* Fully opaque on hover */
-}
-
-/* Button container styling */
-.button-container {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    justify-content: center;
-    align-items: center; /* Center buttons */
-    gap: 20px; /* Space between buttons */
-    position: relative;
-    z-index: 3; /* Ensure it's above other content */
-}
-
-/* Glassmorphism for buttons */
-button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Blur effect */
-    transition: background-color 0.3s ease;
-    cursor: pointer; /* Indicate clickable area */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow effect */
-}
-
-button:hover {
-    background: rgba(0, 0, 0, 0.7); /* Darker on hover */
-}
-
-/* Footer styling */
-.footer {
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
-    color: white; /* Text color */
-    padding: 20px 0; /* Padding for spacing */
-    text-align: center; /* Center the text */
-    position: relative; /* Positioning context */
-    bottom: 0; /* Stick to the bottom */
-    width: 100%; /* Full width */
-}
-
-.footer-content {
-    max-width: 1200px; /* Limit width */
-    margin: 0 auto; /* Center the footer content */
-}
-
-.footer ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-}
-
-.footer li {
-    display: inline; /* Display list items in a line */
-    margin: 0 15px; /* Spacing between links */
-}
-
-.footer a {
-    color: white; /* Link color */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s; /* Smooth color transition */
-}
-
-.footer a:hover {
-    color: rgba(0, 123, 255, 1); /* Change color on hover */
-}
+</body>
+</html>
