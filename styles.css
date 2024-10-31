@@ -1,176 +1,325 @@
 /* Basic reset for body */
 body {
-margin: 0;
-background-color: white;
-overflow-x: hidden; /* Hide horizontal overflow */
-font-family: 'Arial', sans-serif; /* Smoother font */
+    margin: 0;
+    background-color: white;
+    overflow-x: hidden; /* Hide horizontal overflow */
+    font-family: 'Arial', sans-serif; /* Smoother font */
+}
+
+/* Navbar styling */
+.navbar {
+    position: fixed; /* Fixed position for the navbar */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center; /* Center items */
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 1rem 0; /* Padding for navbar */
+}
+
+.navbar li {
+    margin: 0 15px; /* Space between menu items */
+}
+
+.navbar a {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Text color */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.navbar a:hover {
+    color: rgba(0, 123, 255, 1); /* Change color on hover */
 }
 
 /* Section styling */
 .section {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh; /* Full viewport height */
-position: relative;
-flex-direction: column; /* Stack elements vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    flex-direction: column; /* Stack elements vertically */
 }
 
-/* White background for the first section */
+/* Glassmorphism effect for white background */
 .white-background {
-background-color: white;
-position: relative;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    position: relative;
 }
 
 /* Circle that changes opacity on hover */
 .hover-circle {
-width: 100px;
-height: 100px;
-background-color: blue;
-border-radius: 50%;
-position: absolute;
-bottom: 20px; /* Position at the bottom */
-opacity: 0.5;
-transition: opacity 0.3s ease, transform 0.3s ease;
-cursor: pointer; /* Indicate clickable area */
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 255, 0.5); /* Semi-transparent blue */
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px; /* Position at the bottom */
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Indicate clickable area */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
 }
 
+/* Change opacity and lift effect on hover */
 .white-background:hover .hover-circle {
-opacity: 1;
-transform: translateY(-10px); /* Slight lift effect */
+    opacity: 1;
+    transform: translateY(-10px); /* Slight lift effect */
 }
 
 /* Background Video Styling */
 .video-background {
-position: absolute;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-overflow: hidden;
-z-index: -1; /* Place behind other content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Place behind other content */
 }
 
 .video-background iframe {
-width: 100vw;
-height: 100vh;
-pointer-events: none; /* Prevent interaction */
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Prevent interaction */
 }
 
 /* Circle container styling */
 .circle-container {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-gap: 20px; /* Space between circles */
-position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between circles */
+    position: relative;
 }
 
 /* Circle styling with background image */
 .circle {
-width: 100px;
-height: 100px;
-background-image: url('logos/xcom2.png');
-background-size: cover;
-background-position: center;
-border-radius: 50%;
-opacity: 0.5;
-transition: opacity 0.3s ease, transform 0.3s ease;
-cursor: pointer; /* Indicate clickable area */
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+    width: 100px;
+    height: 100px;
+    background-image: url('logos/xcom2.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Indicate clickable area */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
 }
 
 /* Bigger circle styling */
 .big-circle {
-width: 250px;
-height: 250px;
-background-image: url('logos/icon.png');
-background-size: cover;
-background-position: center;
-border-radius: 50%;
-opacity: 0.5;
-transition: opacity 0.3s ease, transform 0.3s ease;
-cursor: pointer; /* Indicate clickable area */
-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
-position: absolute;
-top: -250px; /* Position higher above the other circles */
+    width: 250px;
+    height: 250px;
+    background-image: url('logos/icon.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Indicate clickable area */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+    position: absolute;
+    top: -250px; /* Position higher above the other circles */
 }
 
 /* Hover effect */
 .circle:hover, .big-circle:hover {
-opacity: 1;
-transform: translateY(-10px); /* Slight lift effect */
+    opacity: 1;
+    transform: translateY(-10px); /* Slight lift effect */
 }
 
-/* White bar styling */
+/* Gallery Section */
+.gallery-section {
+    text-align: center; /* Center text in gallery section */
+    position: relative; /* Needed for absolute positioning of the blur effect */
+}
+
+.gallery-container {
+    display: flex;
+    align-items: center; /* Center align images */
+    justify-content: center; /* Center align arrows */
+}
+
+/* Add a new wrapper for the image with blur */
+.gallery-image {
+    position: relative; /* Positioning for the blur effect */
+}
+
+/* New style for the blurred background */
+.gallery-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    z-index: 1; /* Place behind the image */
+}
+
+/* Ensure the image is above the blur */
+.gallery-image img {
+    width: 500px; /* Width of gallery image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    position: relative; /* Ensure image is above the blur */
+    z-index: 2; /* Place image above the blur effect */
+    transition: transform 0.3s ease; /* Smooth zoom transition */
+}
+
+/* Zoom effect on hover */
+.gallery-image img:hover {
+    transform: scale(1.05); /* Scale up image slightly */
+}
+
+/* Arrow buttons for gallery */
+.arrow {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border: none;
+    border-radius: 50%; /* Round buttons */
+    width: 40px; /* Width of buttons */
+    height: 40px; /* Height of buttons */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 20px; /* Font size for arrows */
+    margin: 0 20px; /* Margin between arrows and image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    position: relative; /* Ensure arrows are above the blur */
+    z-index: 3; /* Place above the blur */
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+}
+
+/* Glassmorphism for white bar */
 .white-bar {
-position: absolute;
-top: 100vh; /* Start at the bottom of the first section */
-left: 50%;
-transform: translateX(-50%);
-width: 80%; /* Adjust width as needed */
-height: calc(100vh - 200px); /* Adjust height to leave room for the third section */
-background-color: white;
-opacity: 1;
-transition: opacity 0.3s ease;
-z-index: 1; /* Ensure it is above the video */
+    position: absolute;
+    top: 100vh; /* Start at the bottom of the first section */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Adjust width as needed */
+    height: calc(100vh - 200px); /* Adjust height to leave room for the third section */
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    transition: opacity 0.3s ease;
+    z-index: 1; /* Ensure it is above the video */
 }
 
 .white-bar:hover {
-opacity: 0.7; /* Reduce opacity on hover */
+    opacity: 0.7; /* Reduce opacity on hover */
 }
 
-/* White tower styling */
+/* Glassmorphism for white tower */
 .white-tower {
-position: absolute;
-top: 0;
-left: 50%;
-transform: translateX(-50%);
-width: 400px; /* Same width as the contact form */
-height: 100vh; /* Full height of the video */
-background-color: white;
-opacity: 1;
-transition: opacity 0.3s ease;
-z-index: 2; /* Ensure it is above the video and white bar */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px; /* Same width as the contact form */
+    height: 100vh; /* Full height of the video */
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blur effect */
+    transition: opacity 0.3s ease;
+    z-index: 2; /* Ensure it is above the video and white bar */
 }
 
 .white-tower:hover {
-opacity: 0.7; /* Reduce opacity on hover */
+    opacity: 0.7; /* Reduce opacity on hover */
 }
 
 /* Contact form styling */
 .contact-form-container {
-max-width: 400px;
-margin: 2rem auto;
-padding: 2rem;
-background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on form */
-border-radius: 20px; /* Curved edges */
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
-text-align: center;
-color: white;
-font-family: 'Arial', sans-serif; /* Smoother font */
-position: relative;
-z-index: 3; /* Ensure it is above the white tower */
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.8); /* Slightly more opaque */
+    backdrop-filter: blur(15px); /* Stronger blur effect */
+    border-radius: 20px; /* Curved edges */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow */
+    text-align: center;
+    color: black; /* Change text color for better contrast */
+    position: relative;
+    z-index: 3; /* Ensure it is above the white tower */
 }
 
 .contact-form-container h2 {
-margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .contact-form-container input,
 .contact-form-container textarea {
-width: calc(100% - 2rem); /* Ensure padding doesn't extend beyond container */
-padding: 1rem;
-margin-bottom: 1rem;
-background-color: rgba(255, 255, 255, 0.1);
-border: none;
-color: white;
-border-radius: 10px;
-font-size: 1rem;
+    width: calc(100% - 2rem); /* Ensure padding doesn't extend beyond container */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque for input fields */
+    border: none;
+    color: black; /* Change text color for better contrast */
+    border-radius: 10px;
+    font-size: 1rem;
 }
 
 .contact-form-container input:focus,
 .contact-form-container textarea:focus {
-outline: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 1); /* Fully opaque on focus */
+}
+
+.contact-form-container .submit-button {
+    background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent blue */
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-container .submit-button:hover {
+    background-color: rgba(0, 123, 255, 1); /* Fully opaque on hover */
+}
+
+/* Button container styling */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    justify-content: center;
+    align-items: center; /* Center buttons */
+    gap: 20px; /* Space between buttons */
+    position: relative;
+    z-index: 3; /* Ensure it's above other content */
+}
+
+/* Glassmorphism for buttons */
+button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect */
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Indicate clickable area */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+button:hover {
+    background: rgba(0, 0, 0, 0.7); /* Darken on hover */
+}
