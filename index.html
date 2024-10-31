@@ -1,76 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hover Opacity Circle with Background Video</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Opacity Circle with Background Video</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Navigation Menu -->
+<nav class="navbar">
+    <ul>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">Gallery</a></li>
+        <li><a href="#section3">Store</a></li>
+        <li><a href="#section4">Recruitment</a></li>
+    </ul>
+</nav>
+
 <!-- First Section with White Background -->
 <section class="section white-background" id="section1">
-<div class="circle-container">
-<div class="big-circle"></div>
-<a href="javascript:void(0)" onclick="scrollToSection('section2')">
-<div class="circle"></div>
-</a>
-<a href="javascript:void(0)" onclick="scrollToSection('section2')">
-<div class="circle"></div>
-</a>
-<a href="javascript:void(0)" onclick="scrollToSection('section2')">
-<div class="circle"></div>
-</a>
-<a href="javascript:void(0)" onclick="scrollToSection('section2')">
-<div class="circle"></div>
-</a>
-</div>
-<div class="hover-circle" onclick="scrollToSection('section2')"></div>
+    <div class="circle-container">
+        <a href="https://twitter.com/breadflowz" target="_blank">
+            <div class="circle" style="background-image: url('logos/xcom2.png');"></div>
+        </a>
+        <a href="https://steamcommunity.com/id/breadflows" target="_blank">
+            <div class="circle" style="background-image: url('logos/steam.png');"></div>
+        </a>
+        <a href="https://discord.gg/">
+            <div class="circle" style="background-image: url('logos/discord.png');"></div>
+        </a>
+        <a href="https://instagram.com/bread.flowz" target="_blank">
+            <div class="circle" style="background-image: url('logos/instagram.png');"></div>
+        </a>
+    </div>
+    <div class="hover-circle" onclick="scrollToSection('section2')"></div>
 </section>
 
 <!-- Second Section with Background Playlist -->
 <section class="section" id="section2">
-<div class="video-background">
-<iframe id="videoFrame" src="https://www.youtube.com/embed/videoseries?list=PLln60eLGTlYG5tV5qaXl4J6ZjNO8oWzgT&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&index=0"
-frameborder="0" 
-allow="autoplay; fullscreen" 
-allowfullscreen>
-</iframe>
-</div>
-<div class="white-bar"></div>
-<div class="white-tower"></div>
-<!-- Contact Form -->
-<div class="contact-form-container">
-<h2>Contact Me</h2>
-<form action="https://api.staticforms.xyz/submit" method="post">
-<input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="email" name="email" placeholder="Your Email" required>
-<textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-<input type="hidden" name="replyTo" value="@">
-<input type="submit" value="Send" class="submit-button">
-</form>
-</div>
+    <div class="video-background">
+        <iframe id="videoFrame" src="https://www.youtube.com/embed/videoseries?list=PLln60eLGTlYG5tV5qaXl4J6ZjNO8oWzgT&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&index=0"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+        </iframe>
+    </div>
+    <div class="white-bar"></div>
+    <div class="white-tower"></div>
+    <!-- Contact Form -->
+    <div class="contact-form-container">
+        <h2>Contact Me</h2>
+        <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="hidden" name="replyTo" value="@">
+            <input type="submit" value="Send" class="submit-button">
+        </form>
+    </div>
 </section>
 
-<!-- Third Section (Blank for now) -->
-<section class="section white-background" id="section3">
+<!-- Third Section for Gallery -->
+<section class="section gallery-section" id="section3">
+    <h2>Gallery</h2>
+    <div class="gallery-container">
+        <button class="arrow" onclick="prevImage()">&#10094;</button>
+        <div class="gallery-image">
+            <img id="galleryImg" src="images/gallery/image1.jpg" alt="Gallery Image">
+        </div>
+        <button class="arrow" onclick="nextImage()">&#10095;</button>
+    </div>
+</section>
+
+<!-- Fourth Section for Recruitment -->
+<section class="section" id="section4">
+    <div class="video-background">
+        <video id="recruitmentVideo" autoplay muted loop>
+            <source src="videos/yes.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="white-bar"></div>
+    <div class="contact-form-container">
+        <h2>Join Us</h2>
+        <form action="https://api.staticforms.xyz/submit" method="post">
+            <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Why do you want to join?" required></textarea>
+            <input type="hidden" name="replyTo" value="@">
+            <input type="submit" value="Send" class="submit-button">
+        </form>
+    </div>
 </section>
 
 <script>
-function scrollToSection(sectionId) {
-document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-}
+    function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
 
-// Function to shuffle the YouTube playlist
-function shufflePlaylist() {
-const iframe = document.getElementById('videoFrame');
-const src = iframe.src;
-iframe.src = src + '&shuffle=1';
-}
+    // Function to shuffle the YouTube playlist
+    function shufflePlaylist() {
+        const iframe = document.getElementById('videoFrame');
+        const src = iframe.src;
+        iframe.src = src + '&shuffle=1';
+    }
 
-// Call the shuffle function when the page loads
-window.onload = shufflePlaylist;
+    // Call the shuffle function when the page loads
+    window.onload = shufflePlaylist;
+
+    // Gallery functionality
+    let currentImageIndex = 0;
+    const images = ['images/gallery/image1.jpg', 'images/gallery/image2.jpg', 'images/gallery/image3.jpg']; // Updated image paths
+
+    function updateImage() {
+        document.getElementById('galleryImg').src = images[currentImageIndex];
+    }
+
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        updateImage();
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage();
+    }
+
+    // Initial image load
+    window.onload = function() {
+        updateImage();
+    };
 </script>
 
 </body>
