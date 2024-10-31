@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hover Opacity Circle with Background Video</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Footer styling */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+            color: white; /* Text color */
+            padding: 20px 0; /* Padding for spacing */
+            text-align: center; /* Center the text */
+            position: relative; /* Positioning context */
+            bottom: 0; /* Stick to the bottom */
+            width: 100%; /* Full width */
+        }
+
+        .footer-content {
+            max-width: 1200px; /* Limit width */
+            margin: 0 auto; /* Center the footer content */
+        }
+
+        .footer ul {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            margin: 0; /* Remove margin */
+        }
+
+        .footer li {
+            display: inline; /* Display list items in a line */
+            margin: 0 15px; /* Spacing between links */
+        }
+
+        .footer a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+
+        .footer a:hover {
+            color: rgba(0, 123, 255, 1); /* Change color on hover */
+        }
+    </style>
 </head>
 <body>
 
@@ -15,15 +53,14 @@
         <li><a href="#section2">Gallery</a></li>
         <li><a href="#section3">Store</a></li>
         <li><a href="#section4">Recruitment</a></li>
+        <li><a href="#section5">Contact</a></li>
     </ul>
 </nav>
 
 <!-- First Section with White Background -->
 <section class="section white-background" id="section1">
     <div class="circle-container">
-        <!-- New Larger Circle for Icon placed first -->
         <div class="large-circle" style="background-image: url('logos/icon.png');"></div>
-        
         <div class="small-circle-container">
             <a href="https://twitter.com/breadflowz" target="_blank">
                 <div class="circle" style="background-image: url('logos/xcom2.png');"></div>
@@ -101,6 +138,26 @@
         </form>
     </div>
 </section>
+
+<!-- Fifth Section for Footer -->
+<section class="section" id="section5">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+        <p>For inquiries, please reach out!</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2024 BreadFlows LLC. All Rights Reserved.</p>
+        <ul class="social-links">
+            <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
+            <li><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></li>
+            <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+        </ul>
+    </div>
+</footer>
 
 <script>
     function scrollToSection(sectionId) {
