@@ -58,6 +58,23 @@ body {
     position: relative;
 }
 
+/* Container for circles */
+.circle-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center items */
+}
+
+/* Container for small circles */
+.small-circle-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between circles */
+    margin-top: 20px; /* Space between large circle and small circles */
+}
+
 /* Circle that changes opacity on hover */
 .hover-circle {
     width: 100px;
@@ -83,34 +100,16 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: -1; /* Place behind other content */
-}
-
-.video-background iframe {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     pointer-events: none; /* Prevent interaction */
-}
-
-/* Circle container styling */
-.circle-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px; /* Space between circles */
-    position: relative;
 }
 
 /* Circle styling with background image */
 .circle {
-    width: 100px;
-    height: 100px;
-    background-image: url('logos/xcom2.png');
-    background-size: cover;
+    width: 100px; /* Keep circle size */
+    height: 100px; /* Keep circle size */
+    background-size: 110%; /* Slightly zoomed-out image size to fit within circle */
     background-position: center;
     border-radius: 50%;
     opacity: 0.5;
@@ -119,24 +118,21 @@ body {
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
 }
 
-/* Bigger circle styling */
-.big-circle {
-    width: 250px;
-    height: 250px;
-    background-image: url('logos/icon.png');
-    background-size: cover;
+/* Larger circle styling for the icon */
+.large-circle {
+    width: 150px; /* Larger circle size */
+    height: 150px; /* Larger circle size */
+    background-size: 110%; /* Adjusted image size */
     background-position: center;
     border-radius: 50%;
     opacity: 0.5;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    cursor: pointer; /* Indicate clickable area */
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
-    position: absolute;
-    top: -250px; /* Position higher above the other circles */
 }
 
-/* Hover effect */
-.circle:hover, .big-circle:hover {
+/* Hover effect for circles */
+.circle:hover,
+.large-circle:hover {
     opacity: 1;
     transform: translateY(-10px); /* Slight lift effect */
 }
