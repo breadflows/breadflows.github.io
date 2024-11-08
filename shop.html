@@ -8,13 +8,23 @@
     <style>
         /* Additional styles for the store page */
         body {
-            background-image: url('images/store/wallpaper.jpg'); /* Background image path */
             background-size: cover; /* Cover the entire background */
             background-position: center; /* Center the background image */
             background-repeat: no-repeat; /* Prevent background from repeating */
             overflow: hidden; /* Prevent scrolling */
             height: 100vh; /* Full viewport height */
             margin: 0; /* Remove default margin */
+            animation: backgroundCycle 15s infinite; /* Animation for background cycling */
+        }
+
+        /* Keyframes for cycling through gallery images */
+        @keyframes backgroundCycle {
+            0% { background-image: url('images/gallery/image1.jpg'); }
+            20% { background-image: url('images/gallery/image2.jpg'); }
+            40% { background-image: url('images/gallery/image3.jpg'); }
+            60% { background-image: url('images/gallery/image1.jpg'); }
+            80% { background-image: url('images/gallery/image2.jpg'); }
+            100% { background-image: url('images/gallery/image3.jpg'); }
         }
 
         .coming-soon-container {
