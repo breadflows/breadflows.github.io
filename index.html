@@ -42,6 +42,44 @@
         .footer a:hover {
             color: rgba(0, 123, 255, 1); /* Change color on hover */
         }
+
+        .circle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .linktree-style {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .linktree-style a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .linktree-style a:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .linktree-style img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -61,22 +99,21 @@
 <section class="section white-background" id="section1">
     <div class="circle-container">
         <div class="large-circle" style="background-image: url('logos/icon.png');"></div>
-        <div class="small-circle-container">
+        <div class="linktree-style">
             <a href="https://twitter.com/breadflowz" target="_blank">
-                <div class="circle" style="background-image: url('logos/xcom2.png');"></div>
+                <img src="logos/xcom2.png" alt="Twitter Logo"> Twitter
             </a>
             <a href="https://steamcommunity.com/id/breadflows" target="_blank">
-                <div class="circle" style="background-image: url('logos/steam.png');"></div>
+                <img src="logos/steam.png" alt="Steam Logo"> Steam
             </a>
             <a href="https://discord.gg/">
-                <div class="circle" style="background-image: url('logos/discord.png');"></div>
+                <img src="logos/discord.png" alt="Discord Logo"> Discord
             </a>
             <a href="https://instagram.com/bread.flowz" target="_blank">
-                <div class="circle" style="background-image: url('logos/instagram.png');"></div>
+                <img src="logos/instagram.png" alt="Instagram Logo"> Instagram
             </a>
         </div>
     </div>
-    <div class="hover-circle" onclick="scrollToSection('section2')"></div>
 </section>
 
 <!-- Second Section with Background Playlist -->
