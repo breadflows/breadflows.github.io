@@ -88,10 +88,8 @@
 <nav class="navbar">
     <ul>
         <li><a href="#section1">Home</a></li>
-        <li><a href="#section2">Gallery</a></li>
-        <li><a href="shop.html">Store</a></li> <!-- Updated to link to shop.html -->
-        <li><a href="#section4">Recruitment</a></li>
-        <li><a href="#section5">Contact</a></li>
+        <li><a href="#section2">Contact</a></li>
+        <li><a href="shop.html">Store</a></li>
     </ul>
 </nav>
 
@@ -143,43 +141,8 @@
     </div>
 </section>
 
-<!-- Third Section for Gallery -->
-<section class="section gallery-section" id="section3">
-    <h2>Gallery</h2>
-    <div class="gallery-container">
-        <button class="arrow" onclick="prevImage()">&#10094;</button>
-        <div class="gallery-image">
-            <img id="galleryImg" src="images/gallery/image1.jpg" alt="Gallery Image">
-        </div>
-        <button class="arrow" onclick="nextImage()">&#10095;</button>
-    </div>
-</section>
-
-<!-- Fourth Section for Recruitment -->
-<section class="section" id="section4">
-    <div class="video-background">
-        <video id="recruitmentVideo" autoplay muted loop>
-            <source src="videos/yes.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <div class="white-bar"></div>
-    <div class="contact-form-container">
-        <h2>Join Us</h2>
-        <form action="https://api.staticforms.xyz/submit" method="post">
-            <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
-            <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Why do you want to join?" required></textarea>
-            <input type="hidden" name="replyTo" value="@">
-            <input type="submit" value="Send" class="submit-button">
-        </form>
-    </div>
-</section>
-
-<!-- Fifth Section for Footer -->
-<section class="section" id="section5">
+<!-- Third Section for Footer -->
+<section class="section" id="section3">
     <h2>Contact Us</h2>
     <div class="contact-info">
         <p>For inquiries, please reach out!</p>
@@ -212,29 +175,6 @@
 
     // Call the shuffle function when the page loads
     window.onload = shufflePlaylist;
-
-    // Gallery functionality
-    let currentImageIndex = 0;
-    const images = ['images/gallery/image1.jpg', 'images/gallery/image2.jpg', 'images/gallery/image3.jpg'];
-
-    function updateImage() {
-        document.getElementById('galleryImg').src = images[currentImageIndex];
-    }
-
-    function prevImage() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        updateImage();
-    }
-
-    function nextImage() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        updateImage();
-    }
-
-    // Initial image load
-    window.onload = function() {
-        updateImage();
-    };
 </script>
 
 </body>
