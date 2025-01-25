@@ -12,11 +12,17 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Prevent scrolling */
         }
 
         /* Ensure the main content takes up all available space */
         .main-content {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* Position relative to place elements over the video */
         }
 
         .circle-container {
@@ -24,6 +30,7 @@
             flex-direction: column;
             align-items: center;
             margin-top: 50px;
+            z-index: 1; /* Ensure elements are above the video */
         }
 
         .linktree-style {
@@ -62,15 +69,13 @@
         }
 
         .video-background {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Place video behind the elements */
             overflow: hidden;
-            max-width: 100%;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .video-background iframe {
@@ -79,20 +84,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        .contact-form-container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            margin-top: 20px;
-            position: absolute;
-            z-index: 1;
+            pointer-events: none; /* Prevent interactions with the video */
         }
     </style>
 </head>
 <body>
 
 <div class="main-content">
+    <div class="video-background">
+        <iframe id="videoFrame" src="https://www.youtube.com/embed/videoseries?list=PLln60eLGTlYG5tV5qaXl4J6ZjNO8oWzgT&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&index=0"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+        </iframe>
+    </div>
+
     <!-- First Section with White Background -->
     <section class="section white-background" id="section1">
         <div class="circle-container">
@@ -110,29 +116,6 @@
                 <a href="https://instagram.com/bread.flowz" target="_blank">
                     <img src="logos/instagram.png" alt="Instagram Logo"> Instagram
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Second Section with Background Playlist -->
-    <section class="section" id="section2">
-        <div class="video-background">
-            <iframe id="videoFrame" src="https://www.youtube.com/embed/videoseries?list=PLln60eLGTlYG5tV5qaXl4J6ZjNO8oWzgT&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&index=0"
-                    frameborder="0"
-                    allow="autoplay; fullscreen"
-                    allowfullscreen>
-            </iframe>
-            <div class="contact-form-container">
-                <h2>Contact Me</h2>
-                <form action="https://api.staticforms.xyz/submit" method="post">
-                    <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
-                    <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <input type="hidden" name="replyTo" value="@">
-                    <input type="submit" value="Send" class="submit-button">
-                </form>
             </div>
         </div>
     </section>
