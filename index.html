@@ -19,41 +19,6 @@
             flex: 1;
         }
 
-        /* Footer styling */
-        .footer {
-            background-color: rgba(0, 0, 0, 0.8); /* Dark background */
-            color: white; /* Text color */
-            padding: 20px 0; /* Padding for spacing */
-            text-align: center; /* Center the text */
-            width: 100%; /* Full width */
-        }
-
-        .footer-content {
-            max-width: 1200px; /* Limit width */
-            margin: 0 auto; /* Center the footer content */
-        }
-
-        .footer ul {
-            list-style-type: none; /* Remove bullet points */
-            padding: 0; /* Remove padding */
-            margin: 0; /* Remove margin */
-        }
-
-        .footer li {
-            display: inline; /* Display list items in a line */
-            margin: 0 15px; /* Spacing between links */
-        }
-
-        .footer a {
-            color: white; /* Link color */
-            text-decoration: none; /* Remove underline */
-            transition: color 0.3s; /* Smooth color transition */
-        }
-
-        .footer a:hover {
-            color: rgba(0, 123, 255, 1); /* Change color on hover */
-        }
-
         .circle-container {
             display: flex;
             flex-direction: column;
@@ -103,6 +68,9 @@
             overflow: hidden;
             max-width: 100%;
             background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .video-background iframe {
@@ -114,9 +82,11 @@
         }
 
         .contact-form-container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             margin-top: 20px;
+            position: absolute;
+            z-index: 1;
         }
     </style>
 </head>
@@ -152,18 +122,18 @@
                     allow="autoplay; fullscreen"
                     allowfullscreen>
             </iframe>
-        </div>
-        <div class="contact-form-container">
-            <h2>Contact Me</h2>
-            <form action="https://api.staticforms.xyz/submit" method="post">
-                <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
-                <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <input type="hidden" name="replyTo" value="@">
-                <input type="submit" value="Send" class="submit-button">
-            </form>
+            <div class="contact-form-container">
+                <h2>Contact Me</h2>
+                <form action="https://api.staticforms.xyz/submit" method="post">
+                    <input type="hidden" name="accessKey" value="f838b19b-d05c-4811-ae59-8a2429920b9a">
+                    <input type="text" name="honeypot" style="display: none;"> <!-- Optional -->
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <input type="hidden" name="replyTo" value="@">
+                    <input type="submit" value="Send" class="submit-button">
+                </form>
+            </div>
         </div>
     </section>
 </div>
