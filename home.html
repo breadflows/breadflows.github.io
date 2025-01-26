@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breadflows Official</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="logos/icon.png" type="image/png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        /* Ensure the main content takes up all available space */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative; /* Position relative to place elements over the video */
+        }
+
+        .circle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            z-index: 1; /* Ensure elements are above the video */
+        }
+
+        .linktree-style {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .linktree-style a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 250px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .linktree-style a:hover {
+            background-color: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .linktree-style img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .section {
+            padding: 20px;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Place video behind the elements */
+            overflow: hidden;
+        }
+
+        .video-background iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Prevent interactions with the video */
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-content">
+    <div class="video-background">
+        <iframe id="videoFrame" src="https://www.youtube.com/embed/videoseries?list=PLln60eLGTlYG5tV5qaXl4J6ZjNO8oWzgT&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&modestbranding=1&vq=hd1080"
+                frameborder="0"
+                allow="autoplay; fullscreen"
+                allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- First Section with White Background -->
+    <section class="section white-background" id="section1">
+        <div class="circle-container">
+            <div class="large-circle" style="background-image: url('logos/icon.png');"></div>
+            <div class="linktree-style">
+                <a href="https://twitter.com/breadflowz" target="_blank">
+                    <img src="logos/xcom2.png" alt="Twitter Logo"> Twitter
+                </a>
+                <a href="https://steamcommunity.com/id/breadflows" target="_blank">
+                    <img src="logos/steam.png" alt="Steam Logo"> Steam
+                </a>
+                <a href="https://discord.gg/">
+                    <img src="logos/discord.png" alt="Discord Logo"> Discord
+                </a>
+                <a href="https://instagram.com/bread.flowz" target="_blank">
+                    <img src="logos/instagram.png" alt="Instagram Logo"> Instagram
+                </a>
+                <a href="https://breadflows.com/sites/shop/shop.html" target="_blank">
+                    <img src="logos/shop.png" alt="Shop Logo"> Shop
+                </a>
+                <a href="https://linktr.ee/breadflowz" target="_blank">
+                    <img src="logos/link.png" alt="Linktree Logo"> All My Links
+                </a>
+                <a href="https://breadflows.creator-spring.com/" target="_blank">
+                    <img src="logos/merch.png" alt="Merch Logo"> Browse Merch
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Function to shuffle the YouTube playlist
+    function shufflePlaylist() {
+        const iframe = document.getElementById('videoFrame');
+        const src = iframe.src;
+        iframe.src = src + '&shuffle=1';
+    }
+
+    // Call the shuffle function when the page loads
+    window.onload = shufflePlaylist;
+</script>
+
+</body>
+</html>
