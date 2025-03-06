@@ -31,38 +31,7 @@
     
     <script>
         // Replace with your actual Discord webhook URL
-        const webhookURL = "// Replace with your actual Discord webhook URL
-const webhookURL = "https://discord.com/api/webhooks/1347235653146116096/zRkv7tS32W2K3Q7qeGqF7KdoFF0TssBL10DR3656sRjDKwwuUN7-CkA-nq9ufg0EVBTn";
-
-// Function to send a message to Discord webhook
-async function sendWebhookMessage(content) {
-    const payload = {
-        content: content,
-        username: "GitHub Webhook",
-        avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-    };
-
-    try {
-        const response = await fetch(webhookURL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-        });
-
-        if (response.ok) {
-            console.log("Message sent successfully");
-        } else {
-            console.error("Failed to send message", response.statusText);
-        }
-    } catch (error) {
-        console.error("Error sending webhook message:", error);
-    }
-}
-
-// Example usage: Send a test message
-sendWebhookMessage("Hello from GitHub webpage!");";
+        const webhookURL = "https://discord.com/api/webhooks/1347235653146116096/zRkv7tS32W2K3Q7qeGqF7KdoFF0TssBL10DR3656sRjDKwwuUN7-CkA-nq9ufg0EVBTn";
 
         // Function to send a message to Discord webhook
         async function sendWebhookMessage(content) {
