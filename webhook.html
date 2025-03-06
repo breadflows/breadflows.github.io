@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Webhook Button</title>
+    <title>Discord Webhook Interface</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
         button {
             padding: 10px 20px;
@@ -27,14 +38,21 @@
     </style>
 </head>
 <body>
-    <button onclick="sendWebhookMessage('Button clicked!')">Send Webhook Message</button>
+    <textarea id="messageInput" placeholder="Enter your message..."></textarea>
+    <button onclick="sendWebhookMessage()">Send Webhook Message</button>
     
     <script>
         // Replace with your actual Discord webhook URL
         const webhookURL = "https://discord.com/api/webhooks/1347235653146116096/zRkv7tS32W2K3Q7qeGqF7KdoFF0TssBL10DR3656sRjDKwwuUN7-CkA-nq9ufg0EVBTn";
 
         // Function to send a message to Discord webhook
-        async function sendWebhookMessage(content) {
+        async function sendWebhookMessage() {
+            const content = document.getElementById("messageInput").value.trim();
+            if (!content) {
+                alert("Please enter a message before sending.");
+                return;
+            }
+            
             const payload = {
                 content: content,
                 username: "GitHub Webhook",
@@ -52,6 +70,7 @@
 
                 if (response.ok) {
                     alert("Message sent successfully");
+                    document.getElementById("messageInput").value = ""; // Clear input field
                 } else {
                     alert("Failed to send message: " + response.statusText);
                 }
