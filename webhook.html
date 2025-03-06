@@ -5,51 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discord Webhook Manager</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #36393f;
-            color: #dcddde;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #2f3136;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .section {
-            margin-bottom: 25px;
-            padding: 15px;
-            background-color: #40444b;
+        /* ... (keep previous styles) ... */
+        .message-id-list {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #202225;
             border-radius: 5px;
         }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            background-color: #202225;
-            border: 1px solid #040405;
-            color: #dcddde;
-            border-radius: 3px;
-        }
-        button {
-            background-color: #5865f2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 3px;
+        .id-entry {
             cursor: pointer;
-            margin: 5px 0;
+            padding: 5px;
+            margin: 3px 0;
+            background-color: #40444b;
+            border-radius: 3px;
         }
-        button:hover {
-            background-color: #4752c4;
-        }
-        .danger {
-            background-color: #ed4245;
-        }
-        .danger:hover {
-            background-color: #c03537;
+        .id-entry:hover {
+            background-color: #2f3136;
         }
     </style>
 </head>
@@ -69,13 +40,13 @@
             <h2>Send Message</h2>
             <textarea id="messageContent" rows="4" placeholder="Message content"></textarea>
             <button onclick="sendMessage()">Send Message</button>
-            <div id="messageIdDisplay"></div>
+            <div class="message-id-list" id="messageIdList"></div>
         </div>
 
         <!-- Edit Message -->
         <div class="section">
             <h2>Edit Message</h2>
-            <input type="text" id="editMessageId" placeholder="Message ID">
+            <input type="text" id="editMessageId" placeholder="Message ID (click recent ID below)">
             <textarea id="editContent" rows="4" placeholder="New message content"></textarea>
             <button onclick="editMessage()">Edit Message</button>
         </div>
@@ -83,17 +54,30 @@
         <!-- Delete Message -->
         <div class="section">
             <h2>Delete Message</h2>
-            <input type="text" id="deleteMessageId" placeholder="Message ID">
+            <input type="text" id="deleteMessageId" placeholder="Message ID (click recent ID below)">
             <button class="danger" onclick="deleteMessage()">Delete Message</button>
         </div>
     </div>
 
     <script>
         let webhookUrl = '';
+        let messageHistory = [];
 
         function saveWebhook() {
             webhookUrl = document.getElementById('webhookUrl').value;
             alert('Webhook URL saved!');
+        }
+
+        function updateMessageIdList() {
+            const list = document.getElementById('messageIdList');
+            list.innerHTML = messageHistory.map(id => 
+                `<div class="id-entry" onclick="fillMessageId('${id}')">${id}</div>`
+            ).join('');
+        }
+
+        function fillMessageId(id) {
+            document.getElementById('editMessageId').value = id;
+            document.getElementById('deleteMessageId').value = id;
         }
 
         async function sendMessage() {
@@ -111,8 +95,13 @@
 
                 const data = await response.json();
                 if (response.ok) {
-                    document.getElementById('messageIdDisplay').innerHTML = 
-                        `Message sent! ID: ${data.id}`;
+                    // Auto-fill edit/delete fields with new ID
+                    fillMessageId(data.id);
+                    
+                    // Add to message history
+                    messageHistory.unshift(data.id);
+                    updateMessageIdList();
+                    
                     document.getElementById('messageContent').value = '';
                 } else {
                     throw new Error(data.message);
@@ -122,54 +111,7 @@
             }
         }
 
-        async function editMessage() {
-            if (!webhookUrl) return alert('Set webhook URL first!');
-            
-            const messageId = document.getElementById('editMessageId').value;
-            const content = document.getElementById('editContent').value;
-            if (!messageId || !content) return alert('Fill all fields!');
-
-            try {
-                const response = await fetch(`${webhookUrl}/messages/${messageId}`, {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ content })
-                });
-
-                if (response.ok) {
-                    alert('Message edited successfully!');
-                    document.getElementById('editContent').value = '';
-                } else {
-                    const data = await response.json();
-                    throw new Error(data.message);
-                }
-            } catch (error) {
-                alert(`Error: ${error.message}`);
-            }
-        }
-
-        async function deleteMessage() {
-            if (!webhookUrl) return alert('Set webhook URL first!');
-            
-            const messageId = document.getElementById('deleteMessageId').value;
-            if (!messageId) return alert('Enter message ID!');
-
-            try {
-                const response = await fetch(`${webhookUrl}/messages/${messageId}`, {
-                    method: 'DELETE'
-                });
-
-                if (response.ok) {
-                    alert('Message deleted successfully!');
-                    document.getElementById('deleteMessageId').value = '';
-                } else {
-                    const data = await response.json();
-                    throw new Error(data.message);
-                }
-            } catch (error) {
-                alert(`Error: ${error.message}`);
-            }
-        }
+        // ... (keep previous editMessage and deleteMessage functions) ...
     </script>
 </body>
 </html>
